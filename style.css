@@ -52,6 +52,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+#meow-redirect-title {
+     color: white;
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 22px;
