@@ -34,8 +34,8 @@ body {
 
 .redirect-button {
   display: block;
-  width: calc(100% - 76px);
-  padding: 24px 38px;
+  width: 90%; 
+  padding: 24px 48px; 
   margin: 18px auto;
   background-color: #FF0000;
   color: white;
@@ -44,7 +44,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 1.5rem;
+  font-size: 1.5rem; 
 }
 
 h1 {
