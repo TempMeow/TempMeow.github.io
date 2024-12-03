@@ -6,11 +6,11 @@ body {
   min-height: 100vh;
   margin: 0;
   font-size: 27px;
-  background: #000000; /* Amoled black */
+  background: #000000; 
   background-image: radial-gradient(circle at center, rgba(200, 200, 200, 0.2) 1%, transparent 1%), radial-gradient(circle at 50% 50%, rgba(200, 200, 200, 0.2) 1%, transparent 1%);
-  background-size: 150px 150px; /* Smaller circles */
-  background-position: 0 0, 75px 75px; /* Closer circles */
-  animation: spiral 8s linear infinite; /* Faster animation */
+  background-size: 150px 150px; 
+  background-position: 0 0, 75px 75px; 
+  animation: spiral 8s linear infinite; 
 }
 
 @keyframes spiral {
@@ -25,7 +25,7 @@ body {
 .container {
   text-align: center;
   padding: 38px;
-  background-color: white;
+  background-color: black;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   max-width: 800px;
@@ -52,7 +52,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 600px) {
   body {
     font-size: 22px;
