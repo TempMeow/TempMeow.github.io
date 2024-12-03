@@ -4,9 +4,22 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
   margin: 0;
   font-size: 27px;
+  background: #000000; 
+  background-image: radial-gradient(circle at center, rgba(200, 200, 200, 0.1) 1%, transparent 1%), radial-gradient(circle at 50% 50%, rgba(200, 200, 200, 0.1) 1%, transparent 1%);
+  background-size: 200px 200px; 
+  background-position: 0 0, 100px 100px; 
+  animation: spiral 15s linear infinite; 
+}
+
+@keyframes spiral {
+  0% {
+    background-position: 0 0, 100px 100px;
+  }
+  100% {
+    background-position: 200px 200px, 300px 300px; /* Adjust final position of circles */
+  }
 }
 
 .container {
@@ -24,7 +37,7 @@ body {
   width: calc(100% - 76px);
   padding: 24px 38px;
   margin: 18px auto;
-  background-color: #4CAF50;
+  background-color: #FF0000;
   color: white;
   text-decoration: none;
   border: none;
