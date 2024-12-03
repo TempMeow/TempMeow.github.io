@@ -13,6 +13,10 @@ body {
   animation: spiral 8s linear infinite; 
 }
 
+  #meow-redirect-title {
+     color: white;
+  }
+
 @keyframes spiral {
   0% {
     background-position: 0 0, 75px 75px;
@@ -50,10 +54,6 @@ body {
 h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-}
-
-#meow-redirect-title {
-     color: white;
 }
 
 @media (max-width: 600px) {
