@@ -7,15 +7,26 @@ body {
   margin: 0;
   font-size: 27px;
   background: #000000; 
-  background-image: radial-gradient(circle at center, rgba(200, 200, 200, 0.2) 1%, transparent 1%), radial-gradient(circle at 50% 50%, rgba(200, 200, 200, 0.2) 1%, transparent 1%);
+  background-image: radial-gradient(circle at center, rgba(200, 200, 200, 0.2) 1%, transparent 1%), 
+                    radial-gradient(circle at 50% 50%, rgba(200, 200, 200, 0.2) 1%, transparent 1%);
   background-size: 150px 150px; 
   background-position: 0 0, 75px 75px; 
   animation: spiral 8s linear infinite; 
 }
 
-  #meow-redirect-title {
-     color: white;
+#meow-redirect-title {
+  color: white;
+  animation: fadeInGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeInGlow {
+  from {
+    text-shadow: 0 0 5px white;
   }
+  to {
+    text-shadow: 0 0 20px #FF0000;
+  }
+}
 
 @keyframes spiral {
   0% {
@@ -34,6 +45,21 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   max-width: 800px;
   margin: 0 auto;
+}
+
+.redirect-button {
+  display: block;
+  width: 90%; 
+  padding: 24px 48px; 
+  margin: 18px auto;
+  background-color: #FF0000;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.5rem; 
 }
 
 .redirect-button:hover {
