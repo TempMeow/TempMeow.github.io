@@ -10,18 +10,19 @@ body {
   font-family: sans-serif;
   background: black;
   color: white;
-  overflow-y: auto; /* Ensure vertical scrolling */
   line-height: 1.6;
+  overflow-y: auto;
 }
 
+/* Fullscreen canvas for the animated background */
 #spiderweb {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  pointer-events: none;
+  width: 100vw; /* Covers entire viewport */
+  height: 100vh; /* Covers entire viewport */
+  z-index: -1; /* Stays behind the content */
+  pointer-events: none; /* Allows interaction with buttons */
 }
 
 .container {
