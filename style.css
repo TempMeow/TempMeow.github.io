@@ -1,56 +1,71 @@
-/* Reset Canvas */
+/* General Reset */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
-}
-
-/* Fullscreen canvas for the background */
-#spiderweb {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Keep it behind content */
+  overflow-x: hidden;
 }
 
 body {
   font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  font-size: 27px;
   background: black;
+  color: white;
+  line-height: 1.6;
 }
 
-#meow-redirect-title {
-  color: white;
-  animation: fadeInGlow 3s ease-in-out infinite alternate;
+/* Fullscreen canvas for the animated background */
+#spiderweb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .container {
-  text-align: center;
-  padding: 38px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffeb3b;
 }
 
 .redirect-button {
   display: block;
-  width: 90%; 
-  padding: 24px 48px; 
-  margin: 18px auto;
-  background-color: #FF0000;
+  width: 90%;
+  margin: 15px auto;
+  padding: 15px;
+  font-size: 1.2rem;
+  background: #ff0000;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.5rem; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.redirect-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .redirect-button {
+    font-size: 1rem;
+    padding: 12px;
+  }
 }
