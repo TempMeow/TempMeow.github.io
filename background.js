@@ -1,22 +1,20 @@
 const canvas = document.getElementById('spiderweb');
 const ctx = canvas.getContext('2d');
 
-// Resize canvas to fill the window
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
+// Set canvas size to match the window
+function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-});
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-// Spiderweb configuration
+// Spiderweb animation variables
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
 const rings = 8;
 const spokes = 12;
-const rotationSpeed = 0.01;
-
+const rotationSpeed = 0.005;
 let angle = 0;
 
 function drawSpiderweb() {
@@ -52,7 +50,7 @@ function drawSpiderweb() {
 
   ctx.restore();
 
-  angle += rotationSpeed; // Increment rotation
+  angle += rotationSpeed;
   requestAnimationFrame(drawSpiderweb);
 }
 
