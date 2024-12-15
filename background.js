@@ -1,7 +1,7 @@
 const canvas = document.getElementById('spiderweb');
 const ctx = canvas.getContext('2d');
 
-// Set canvas size to match the window
+// Resize canvas to fit the screen
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -9,7 +9,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
-// Spiderweb animation variables
+// Spiderweb Animation
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
 const rings = 8;
@@ -24,7 +24,7 @@ function drawSpiderweb() {
   ctx.translate(centerX, centerY);
   ctx.rotate(angle);
 
-  // Draw rings
+  // Draw concentric rings
   for (let i = 1; i <= rings; i++) {
     const radius = (i / rings) * Math.min(canvas.width, canvas.height) / 2;
     ctx.beginPath();
@@ -34,7 +34,7 @@ function drawSpiderweb() {
     ctx.stroke();
   }
 
-  // Draw spokes
+  // Draw radial spokes
   for (let i = 0; i < spokes; i++) {
     const theta = (i / spokes) * Math.PI * 2;
     ctx.beginPath();
