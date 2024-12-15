@@ -1,4 +1,4 @@
-const canvas = document.getElementById('spiderweb');
+const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
 // Resize canvas to fit the screen
@@ -9,49 +9,44 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
-// Spiderweb Animation
-const centerX = canvas.width / 2;
-const centerY = canvas.height / 2;
-const rings = 8;
-const spokes = 12;
-const rotationSpeed = 0.005;
-let angle = 0;
+// Particle configuration
+const particles = [];
+const numParticles = 100;
 
-function drawSpiderweb() {
+function createParticles() {
+  for (let i = 0; i < numParticles; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 2,
+      dy: (Math.random() - 0.5) * 2,
+      opacity: Math.random() * 0.5 + 0.5
+    });
+  }
+}
+createParticles();
+
+function drawParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.save();
-  ctx.translate(centerX, centerY);
-  ctx.rotate(angle);
-
-  // Draw concentric rings
-  for (let i = 1; i <= rings; i++) {
-    const radius = (i / rings) * Math.min(canvas.width, canvas.height) / 2;
+  particles.forEach(particle => {
     ctx.beginPath();
-    ctx.arc(0, 0, radius, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(255, 255, 255, ${1 - i / rings})`;
-    ctx.lineWidth = 1;
-    ctx.stroke();
-  }
+    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+    ctx.fill();
 
-  // Draw radial spokes
-  for (let i = 0; i < spokes; i++) {
-    const theta = (i / spokes) * Math.PI * 2;
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(
-      Math.cos(theta) * (Math.min(canvas.width, canvas.height) / 2),
-      Math.sin(theta) * (Math.min(canvas.width, canvas.height) / 2)
-    );
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-  }
+    // Move particles
+    particle.x += particle.dx;
+    particle.y += particle.dy;
 
-  ctx.restore();
+    // Wrap particles around edges
+    if (particle.x < 0) particle.x = canvas.width;
+    if (particle.x > canvas.width) particle.x = 0;
+    if (particle.y < 0) particle.y = canvas.height;
+    if (particle.y > canvas.height) particle.y = 0;
+  });
 
-  angle += rotationSpeed;
-  requestAnimationFrame(drawSpiderweb);
+  requestAnimationFrame(drawParticles);
 }
-
-drawSpiderweb();
+drawParticles();
