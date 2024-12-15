@@ -36,19 +36,10 @@ body {
   margin: 0 auto;
 }
 
-.redirect-button {
-  display: block;
-  width: 90%; 
-  padding: 24px 48px; 
-  margin: 18px auto;
-  background-color: #FF0000;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 1.5rem; 
+.redirect-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5);
+  background-color: #FF4D4D;
 }
 
 h1 {
